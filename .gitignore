@@ -5,6 +5,7 @@
 
 # project specific
 1.Settings.config
+Assets/
 
 # OS shit
 .DS_Store

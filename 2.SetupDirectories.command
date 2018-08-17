@@ -6,6 +6,9 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 # load settings
 . $dir/1.Settings.config
 
+# create a Assets folder if needed
+mkdir -p $dir/Assets/
+
 # get metadata for this app id
 "$itmst_location" -m lookupMetadata -u "$username" -p "$password" -apple_id $app_id -destination "$dir/Assets/" -v informational -app_platform $app_platform
 

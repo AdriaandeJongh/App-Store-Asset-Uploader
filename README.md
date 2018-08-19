@@ -7,21 +7,27 @@ Instructions are a work-in-progress!
 
 * macOS.
 * The latest version of XCode with command line tools installed.
-* An (editable) app with one screenshow and one app preview in at least one locale.
-  
-## Usage
+* An (editable) app.
 
-1. Clone / download this repository.
-2. Duplicate `1.Settings-template.config` and rename the duplicate to `1.Settings.config`.
-3. Edit `1.Settings.config` and replace all variables there to match your own details.
+## Setup
+
+1. Confirm that you have an editable version of your app (a version with status 'Prepare for Submission') on [App Store Connect](https://appstoreconnect.apple.com/) with every language you want to upload added to that version.
+2. Confirm that you uploaded at least 1 app preview and 1 screenshot to for every size (aka 'display target') your default locale (eg. en-US) on App Store Connect.
+3. Clone / download this repository.
+4. Duplicate `1.Settings-template.config` and rename the duplicate to `1.Settings.config`.
+5. Edit `1.Settings.config` and replace all variables there to match your own details.
 
    - `itmst_location` refers to the location of the Transporter command line interface. It's already prefilled with its default location, but if you downloaded it separately, edit it there.
    - Because the iOS and tvOS app share the same appId, App-Store-Uploader can only download and upload one type of app (iOS, tvOS, macOS) at a time. The settings template includes examples for tvOS and macOS apps, being commented out at the bottom of the template. Be sure to only have one set of the variables `app_id` and `app_platform` enabled when running through the steps. If you need to upload assets to different platforms, you should repeat the steps below (step 4 to 8) for every platform by setting a different `app_id` and `app_platform`.
-4. Run `2.SetupDirectories.command`. This will create an `/Assets/` directory, download an `.itmsp` package to it (which contains a `metadata.xml`), and create directories for every locale for every display target.
+
+## Usage
+
+
+1. Run `2.SetupDirectories.command`. This will create an `/Assets/` directory, download an `.itmsp` package to it (which contains a `metadata.xml`), and create directories for every locale for every display target.
 
    - Note: when switching between platforms, there is no need to remove any assets from the `/Assets/` directory as only relevant assets for each platform are processed.
       <img width="616" alt="Screenshot of the created directories." src="https://user-images.githubusercontent.com/5611323/44308416-b4a63680-a3b5-11e8-9572-94503bb8708d.png">
-5. Add all your assets to the newly created `/Assets/` directory, placing all screenshots and app previews with the right sizes in the right folders in each locale.
+2. Add all your assets to the newly created `/Assets/` directory, placing all screenshots and app previews with the right sizes in the right folders in each locale.
 
    - See the size reference below for what screenshot and app preview sizes belong in which folders (aka 'display targets').
    - Name screenshots in the format of `<position_in_app_store>.png`, eg. `1.png`, `2.png`, etc.
@@ -34,9 +40,9 @@ Instructions are a work-in-progress!
 
    - The locale you set as the default locale in `1.Settings.config` should have all screenshots and app previews you want to show, as missing screenshots or app previews are taken from the default locale.
    - Every locale with localised app previews should have an `AppPreview-settings.xml`. A template is automatically created in the default locale. Edit each `preview_image_time#` in `AppPreview-settings.xml` to indicate which frame should be the poster frame of the app preview. Funnily enough, the format of this time indication for this at-most-30-second-video is `hours:minutes:seconds:frames`.
-6. Run `3.ApplyMetadata.command`. This will scan the assets directory for all .png's and .mp4's, copy the relevant files to the .itmsp file, and update the metadata.xml to point at the files inside the .itmsp package.
-7. Run `4.VerifyMetadata.command`. This will connect with the App Store and verify that the metadata.xml was filled in correctly and all referenced assets are uploadable.
-8. Run `5.Upload.command`. Your assets will be uploaded and processed by the App Store, but may take up to 24 hours (!!) to be fully processed and show up in App Store Connect. In the meantime, you may run `6.GetStatus.command` to get the status of your latest upload(s).
+3. Run `3.ApplyMetadata.command`. This will scan the assets directory for all .png's and .mp4's, copy the relevant files to the .itmsp file, and update the metadata.xml to point at the files inside the .itmsp package.
+4. Run `4.VerifyMetadata.command`. This will connect with the App Store and verify that the metadata.xml was filled in correctly and all referenced assets are uploadable.
+5. Run `5.Upload.command`. Your assets will be uploaded and processed by the App Store, but may take up to 24 hours (!!) to be fully processed and show up in App Store Connect. In the meantime, you may run `6.GetStatus.command` to get the status of your latest upload(s).
 
 ## Size reference per display target
 

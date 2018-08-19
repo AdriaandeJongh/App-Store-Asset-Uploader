@@ -1,4 +1,4 @@
-# App-Store-Uploader
+# App-Store-Asset-Uploader
 A tool to upload screenshots and app previews using Apple's Transporter CLI.
 
 Instructions are a work-in-progress!

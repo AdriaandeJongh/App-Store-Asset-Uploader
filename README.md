@@ -6,13 +6,13 @@ Instructions are a work-in-progress!
 ## Requirements
 
 * macOS.
-* The latest version of XCode with command line tools installed.
+* XCode with command line tools installed.
 * An (editable) app.
 
 ## Setup
 
 1. Confirm that you have an editable version of your app (a version with status 'Prepare for Submission') on [App Store Connect](https://appstoreconnect.apple.com/) with every language you want to upload added to that version.
-2. Confirm that you uploaded at least 1 app preview and 1 screenshot to for every size (aka 'display target') your default locale (eg. en-US) on App Store Connect.
+2. Confirm that you uploaded at least 1 app preview and 1 screenshot for every size (aka 'display target') to your default locale (eg. en-US) on App Store Connect.
 3. Clone / download this repository.
 4. Duplicate `1.Settings-template.config` and rename the duplicate to `1.Settings.config`.
 5. Edit `1.Settings.config` and replace all variables there to match your own details.
@@ -26,6 +26,7 @@ Instructions are a work-in-progress!
 1. Run `2.SetupDirectories.command`. This will create an `/Assets/` directory, download an `.itmsp` package to it (which contains a `metadata.xml`), and create directories for every locale for every display target.
 
    - Note: when switching between platforms, there is no need to remove any assets from the `/Assets/` directory as only relevant assets for each platform are processed.
+   
       <img width="616" alt="Screenshot of the created directories." src="https://user-images.githubusercontent.com/5611323/44308416-b4a63680-a3b5-11e8-9572-94503bb8708d.png">
 2. Add all your assets to the newly created `/Assets/` directory, placing all screenshots and app previews with the right sizes in the right folders in each locale.
 
@@ -33,9 +34,11 @@ Instructions are a work-in-progress!
    - Name screenshots in the format of `<position_in_app_store>.png`, eg. `1.png`, `2.png`, etc.
    - Name app previews in the format of `AppPreview-<position_in_app_store>.mp4`, eg. `AppPreview-1.mp4`, `AppPreview-2.mp4`, etc.
    - The position number of the screenshots is unrelated to the position numbers of the app previews: start both with 1.
+   
       <img width="820" alt="Example of a fully filled-in locale." src="https://user-images.githubusercontent.com/5611323/44308364-a3a8f580-a3b4-11e8-9dc8-6dee42f359ce.png">
    
    - Within one display target, you can skip adding a screenshot or app preview in a locale when it's the same as the asset of the default locale. For example, if `2.png` in de-DE (German) is the same screenshot as the `2.png` of en-US (English), and en-US was set as the default locale in your `1.Settings.config` file, then not including the `2.png` to de-DE will still add the `2.png` from en-US to the de-DE locale on the App Store.
+   
       <img width="820" alt="Example of a locale relying on assets from the default locale." src="https://user-images.githubusercontent.com/5611323/44308378-f1bdf900-a3b4-11e8-95d9-65d54192bbff.png">
 
    - The locale you set as the default locale in `1.Settings.config` should have all screenshots and app previews you want to show, as missing screenshots or app previews are taken from the default locale.

@@ -18,10 +18,9 @@ Instructions are a work-in-progress!
 5. Edit `1.Settings.config` and replace all variables there to match your own details.
 
    - `itmst_location` refers to the location of the Transporter command line interface. It's already prefilled with its default location, but if you downloaded it separately, edit it there.
-   - Because the iOS and tvOS app share the same appId, App-Store-Uploader can only download and upload one type of app (iOS, tvOS, macOS) at a time. The settings template includes examples for tvOS and macOS apps, being commented out at the bottom of the template. Be sure to only have one set of the variables `app_id` and `app_platform` enabled when running through the steps. If you need to upload assets to different platforms, you should repeat the steps below (step 4 to 8) for every platform by setting a different `app_id` and `app_platform`.
+   - Because the iOS and tvOS app share the same appId, App-Store-Uploader can only download and upload one type of app (iOS, tvOS, macOS) at a time. The settings template includes examples for tvOS and macOS apps, being commented out at the bottom of the template. Be sure to only have one set of the variables `app_id` and `app_platform` enabled when running through the steps. If you need to upload assets to different platforms, you should repeat the steps below (Usage steps 1 to 5) for every platform by setting a different `app_id` and `app_platform`.
 
 ## Usage
-
 
 1. Run `2.SetupDirectories.command`. This will create an `/Assets/` directory, download an `.itmsp` package to it (which contains a `metadata.xml`), and create directories for every locale for every display target.
 

@@ -154,6 +154,10 @@
             "assemblyVersion": "4.0.5.0",
             "fileVersion": "4.6.26629.1"
           },
+          "runtimes/osx-x64/lib/netcoreapp2.1/System.Private.Xml.Linq.dll": {
+            "assemblyVersion": "4.0.1.0",
+            "fileVersion": "4.6.26629.1"
+          },
           "runtimes/osx-x64/lib/netcoreapp2.1/System.Private.Xml.dll": {
             "assemblyVersion": "4.0.1.0",
             "fileVersion": "4.6.26629.1"
@@ -244,6 +248,10 @@
           },
           "runtimes/osx-x64/lib/netcoreapp2.1/System.Xml.ReaderWriter.dll": {
             "assemblyVersion": "4.2.1.0",
+            "fileVersion": "4.6.26629.1"
+          },
+          "runtimes/osx-x64/lib/netcoreapp2.1/System.Xml.XDocument.dll": {
+            "assemblyVersion": "4.1.1.0",
             "fileVersion": "4.6.26629.1"
           }
         },

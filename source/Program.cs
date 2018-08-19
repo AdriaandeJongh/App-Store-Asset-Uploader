@@ -9,10 +9,6 @@ namespace ITMSPLUS
 {
     class Program
     {
-        //transporter help links:
-        //https://help.apple.com/itc/transporteruserguide/#/apdATD1E1288-D1E1A1303-D1E1288A1126
-        //https://help.apple.com/itc/appsspec/#/itc39ebbd83d
-
         private static string assetsPath = string.Empty;
         private static string itmspFilePath = string.Empty;
 
@@ -220,6 +216,21 @@ namespace ITMSPLUS
                         Directory.CreateDirectory(localePath);
                     }
                 }
+
+                string defaultAppPreviewSettingsPath = displayTargetDirectory + defaultAssetsLocale + "/AppPreview-settings.xml";
+
+                if(!File.Exists(defaultAppPreviewSettingsPath))
+                {
+                    Console.WriteLine("Creating new AppPreview-settings.xml for default locale of " + displayTargets[dt]);
+                    new System.Xml.Linq.XDocument(
+                        new System.Xml.Linq.XElement("apppreview_settings",
+                                                     new System.Xml.Linq.XElement("preview_image_time1", "00:00:00:00"),
+                                                     new System.Xml.Linq.XElement("preview_image_time2", "00:00:00:00"),
+                                                     new System.Xml.Linq.XElement("preview_image_time3", "00:00:00:00")
+                        )
+                    )
+                    .Save(defaultAppPreviewSettingsPath);
+                }
             }
         }
 
@@ -303,12 +314,26 @@ namespace ITMSPLUS
                 XmlElement appPreviews = locale["app_previews"];
                 XmlElement screenshots = locale["software_screenshots"];
 
-                if (appPreviews != null)
+                if (appPreviews == null)
+                {
+                    appPreviews = metaDataDocument.CreateElement("app_previews", metaDataDocument.DocumentElement.NamespaceURI);
+                    locale.AppendChild(appPreviews);
+                }
+                else
+                {
                     appPreviews.RemoveAll();
+                }
 
-                if (screenshots != null)
+
+                if (screenshots == null)
+                {
+                    screenshots = metaDataDocument.CreateElement("software_screenshots", metaDataDocument.DocumentElement.NamespaceURI);
+                    locale.AppendChild(screenshots);
+                }
+                else
+                {
                     screenshots.RemoveAll();
-
+                }
 
                 foreach (AssetData defaultAsset in defaultAssets)
                 {
@@ -331,7 +356,7 @@ namespace ITMSPLUS
                         assetData = defaultAsset;
                     }
 
-                    if (appPreviews != null && assetData.fileExtension == ".mp4")
+                    if (assetData.fileExtension == ".mp4")
                     {
                         XmlElement appPreview = metaDataDocument.CreateElement("app_preview", metaDataDocument.DocumentElement.NamespaceURI);
                         appPreview.SetAttribute("display_target", assetData.display_target);
@@ -362,7 +387,7 @@ namespace ITMSPLUS
 
                         appPreviews.AppendChild(appPreview);
                     }
-                    else if(screenshots != null && assetData.fileExtension == ".png")
+                    else if(assetData.fileExtension == ".png")
                     {
                         XmlElement screenshot = metaDataDocument.CreateElement("software_screenshot", metaDataDocument.DocumentElement.NamespaceURI);
                         screenshot.SetAttribute("display_target", assetData.display_target);

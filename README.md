@@ -17,15 +17,15 @@ Instructions are a work-in-progress!
 4. Duplicate `1.Settings-template.config` and rename the duplicate to `1.Settings.config`.
 5. Edit `1.Settings.config` and replace all variables there to match your own details.
    
-   - `targeted_version` should point at the version of your app on App Store Connect that you want to modify the screenshots for.
+   - `targeted_version` should point at the version of your app on App Store Connect that you want to modify the app previews and screenshots for.
    - `itmst_location` refers to the location of the Transporter command line interface. It's already prefilled with its default location, but if you downloaded it separately, edit it there.
-   - Because the iOS and tvOS app share the same appId, App-Store-Uploader can only download and upload one type of app (iOS, tvOS, macOS) at a time. The settings template includes examples for tvOS and macOS apps, being commented out at the bottom of the template. Be sure to only have one set of the variables `app_id` and `app_platform` enabled when running through the steps. If you need to upload assets to different platforms, you should repeat the steps below (Usage steps 1 to 5) for every platform by setting a different `app_id` and `app_platform`.
+   - Because the iOS and tvOS app share the same appId but the macOS app does not, App-Store-Asset-Uploader can only download and upload one type of app (iOS, tvOS, macOS) at a time. The settings template includes examples for tvOS and macOS apps, being commented out at the bottom of the template. Be sure to only have one set of the variables `app_id` and `app_platform` enabled when running through the steps. If you need to upload assets to different platforms, you should repeat the Usage steps below (steps 1 through 5) for every platform by setting a different `app_id` and `app_platform`.
 
 ## Usage
 
 1. Run `2.SetupDirectories.command`. This will create an `/Assets/` directory, download an `.itmsp` package to it (which contains a `metadata.xml`), and create directories for every locale for every display target.
 
-   - Note: when switching between platforms, there is no need to remove any assets from the `/Assets/` directory as only relevant assets for each platform are processed.
+   - Note: when switching between platforms (as explained in Setup), there is no need to remove any assets from the `/Assets/` directory as only relevant assets for each platform will be processed.
    
       <img width="616" alt="Screenshot of the created directories." src="https://user-images.githubusercontent.com/5611323/44308416-b4a63680-a3b5-11e8-9572-94503bb8708d.png">
 2. Add all your assets to the newly created `/Assets/` directory, placing all screenshots and app previews with the right sizes in the right folders in each locale.

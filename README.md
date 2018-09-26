@@ -46,12 +46,12 @@ Instructions are a work-in-progress!
 
 ## Size reference per display target
 
-All sizes below are in landscape, but can also be submitted as portrait.
+Official support documents [here for screenshots](https://help.apple.com/app-store-connect/#/devd274dd925), and [here for App Previews](https://help.apple.com/app-store-connect/#/dev4e413fcb8). For quick reference, most common sizes below.
 
 Display Target | Screenshots | App Previews
 --- | --- | ---
 iOS-5.5-in | `2208 x 1242` | `1920 × 1080`
-iOS-5.8-in | `2436 x 1125` | `1920 × 886`.
-iOS-iPad-Pro | `2732 × 2048` | `1600 × 1200`.
-appletvos | `1920 × 1080` | `1920 × 1080`.
-Mac | `1440 × 900` | -
+iOS-6.5-in | `2688 x 1242` | `1920 × 886`
+iOS-iPad-Pro | `2732 × 2048` | `1600 × 1200`
+appletvos | `1920 × 1080` | `1920 × 1080`
+Mac | `1440 × 900` | `1920 x 1080`

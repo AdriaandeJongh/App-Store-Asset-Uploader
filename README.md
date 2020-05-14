@@ -17,7 +17,7 @@ A tool to upload screenshots and app previews.
    - `password` must be an app-specific password generated on [appleid.apple.com](https://appleid.apple.com/).
    - `targeted_version` should point at the version of your app on App Store Connect that you want to modify the app previews and screenshots for.
    - `itmst_location` refers to the location of the Transporter command line interface. It's already prefilled with its default location, but if you downloaded it separately, edit it there.
-   - Because the iOS and tvOS app share the same appId but the macOS app does not, App-Store-Asset-Uploader can only download and upload one type of app (iOS, tvOS, macOS) at a time. The settings template includes examples for tvOS and macOS apps, being commented out at the bottom of the template. Be sure to only have one set of the variables `app_id` and `app_platform` enabled when running through the steps. If you need to upload assets to different platforms, you should repeat the Usage steps below (steps 1 through 5) for every platform by setting a different `app_id` and `app_platform`.
+   - The App-Store-Asset-Uploader can only download and upload assets for one app platform (iOS, tvOS, macOS) at a time. The settings template includes examples for iOS, tvOS, and macOS apps, the two latter being commented out at the bottom of the setup config template. Be sure to only have one set of the variables `app_id` and `app_platform` enabled when running through the steps. If you need to upload assets to different platforms, you should repeat the Usage steps below (steps 1 through 5) for every platform after uncommenting a different set of `app_id` and `app_platform` each time.
 
 ## Usage
 
@@ -38,8 +38,8 @@ A tool to upload screenshots and app previews.
       <img width="820" alt="Example of a locale relying on assets from the default locale." src="https://user-images.githubusercontent.com/5611323/44308378-f1bdf900-a3b4-11e8-95d9-65d54192bbff.png">
 
    - Every locale with app previews should have an `AppPreview-settings.xml`. A template is automatically created in the default locale. Edit each `preview_image_time#` in `AppPreview-settings.xml` to indicate which frame should be the poster frame of the app preview. Funnily enough, the format of this time indication for this at-most-30-second-video is `hours:minutes:seconds:frames`.
-3. Run `3.ApplyMetadata.command`. This will scan the assets directory for all .png's and .mp4's, copy the relevant files to the .itmsp file, and update the metadata.xml to point at the files inside the .itmsp package.
-4. Run `4.VerifyMetadata.command`. This will connect with the App Store and verify that the metadata.xml was filled in correctly and all referenced assets are uploadable. Watch the output of the Terminal window to see if the verification succeeded or failed, and resolve any errors if needed.
+3. Run `3.ApplyMetadata.command`. This will scan the assets directory for all `.png`'s and `.mp4`'s, copy the relevant files to the `.itmsp` package, and update the `metadata.xml` to point at the files inside the `.itmsp` package.
+4. Run `4.VerifyMetadata.command`. This will connect with the App Store and verify that the `metadata.xml` was filled in correctly and all referenced assets are of the right size and uploadable. Watch the output of the Terminal window to see if the verification succeeded or failed, and resolve any errors if needed.
 5. Run `5.Upload.command`. Your assets will be uploaded and processed by the App Store, but may take up to 24 hours (!!) to be fully processed and show up in App Store Connect. In the meantime, you may run `6.GetStatus.command` to get the status of your latest upload(s).
 
 ## Size reference per display target

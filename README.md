@@ -31,8 +31,8 @@ A tool to upload screenshots and app previews.
       <img width="820" alt="Example of a fully filled-in locale." src="https://user-images.githubusercontent.com/5611323/44308364-a3a8f580-a3b4-11e8-9dc8-6dee42f359ce.png">
 
    - See [the size reference below](#size-reference-per-display-target) for what screenshot and app preview sizes belong in which folders.
-   - Name screenshots in the format of `<position_in_app_store>.png`, eg. `1.png`, `2.png`, etc, and app previews in the format of `AppPreview-<position_in_app_store>.mp4`, eg. `AppPreview-1.mp4`, `AppPreview-2.mp4`, etc.
-   - The position number of the screenshots is unrelated to the position numbers of the app previews: start both with 1.
+   - Name screenshots in the format of `<position_in_app_store>.png`, eg. `1.png`, `2.png`, etc, and app previews in the format of `AppPreview-<position_in_app_store>.mp4`, eg. `AppPreview-1.mp4`, `AppPreview-2.mp4`, etc. Note that in the current version of the uploader, only lowercase `.png` and `.mp4` extensions work while `.PNG` and `.MP4` will lead to validation errors.
+   - The position numbers of the screenshots are unrelated to the position numbers of the app previews: start both with 1.
    - The locale you set as the default locale in `1.Settings.config` should have all screenshots and app previews in all display targets. For other locales, you can skip adding a screenshot or app preview when it's the same as the asset of the default locale. If you skip an asset in a not-default locale, the asset of the default locale will be put in the metadata for that non-default locale. As an example: if the default locale set in your `1.Settings.config` file is en-US (English) and only the screenshots `1.png` and `5.png` need to be localised to de-DE (German), the English locale folder will have all screenshots and app previews while the German locale folder will only have the screenshots `1.png` and `5.png`.
    
       <img width="820" alt="Example of a locale relying on assets from the default locale." src="https://user-images.githubusercontent.com/5611323/44308378-f1bdf900-a3b4-11e8-95d9-65d54192bbff.png">

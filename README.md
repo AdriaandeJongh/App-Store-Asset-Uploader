@@ -6,8 +6,7 @@ Instructions are a work-in-progress!
 ## Requirements
 
 * macOS.
-* XCode with command line tools installed.
-* An (editable) app.
+* Apple's Transporter app from the Mac App Store.
 
 ## Setup
 

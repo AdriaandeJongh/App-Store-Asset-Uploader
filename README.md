@@ -15,7 +15,8 @@ Instructions are a work-in-progress!
 3. Clone / download this repository.
 4. Duplicate `1.Settings-template.config` and rename the duplicate to `1.Settings.config`.
 5. Edit `1.Settings.config` and replace all variables there to match your own details.
-   
+
+   - `password` must be an app-specific password generated on appleid.apple.com.
    - `targeted_version` should point at the version of your app on App Store Connect that you want to modify the app previews and screenshots for.
    - `itmst_location` refers to the location of the Transporter command line interface. It's already prefilled with its default location, but if you downloaded it separately, edit it there.
    - Because the iOS and tvOS app share the same appId but the macOS app does not, App-Store-Asset-Uploader can only download and upload one type of app (iOS, tvOS, macOS) at a time. The settings template includes examples for tvOS and macOS apps, being commented out at the bottom of the template. Be sure to only have one set of the variables `app_id` and `app_platform` enabled when running through the steps. If you need to upload assets to different platforms, you should repeat the Usage steps below (steps 1 through 5) for every platform by setting a different `app_id` and `app_platform`.
@@ -52,5 +53,6 @@ Display Target | Screenshots | App Previews
 iOS-5.5-in | `2208 x 1242` | `1920 × 1080`
 iOS-6.5-in | `2688 x 1242` | `1920 × 886`
 iOS-iPad-Pro | `2732 × 2048` | `1600 × 1200`
+iOS-iPad-Pro-2018 | `2732 × 2048` | `1600 × 1200`
 appletvos | `1920 × 1080` | `1920 × 1080`
 Mac | `1440 × 900` | `1920 x 1080`
